@@ -15,6 +15,12 @@ final class ChatManager {
     
     private var client: ChatClient!
     
+    private let tokens = [
+        "bdh3620": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYmRoMzYyMCJ9.ev7VHhswPt8HlpSREI1wJHgRmFDna8JdIGAAnGEWJ4Q",
+        "stevejobs": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoic3RldmVqb2JzIn0.8jzCiexPVFILdgfenXqZfnNlcqc46N1FcbtCgoJv39w"
+    ]
+    
+    
     
     
     func setUp() {
@@ -25,18 +31,34 @@ final class ChatManager {
     // Authentication
     
     func signIn(with username: String, completion: @ escaping(Bool) -> Void) {
+        guard !username.isEmpty else {
+            completion(false)
+            return
+        }
         
+        guard let token = tokens[username.lowercased()] else {
+            completion(false)
+            return
+        }
+        client.connectUser(
+            userInfo: UserInfo(id: username, name: username),
+            token: Token(stringLiteral: token)
+        ) { error in
+                completion(error == nil)
+            }
     }
     
     func signOut() {
-        
+        client.disconnect()
+        client.logout()
     }
     var isSignedIn: Bool {
-        return false
+        return client.currentUserId != nil
+        
     }
     
     var currentUser: String? {
-        return nil
+        return client.currentUserId 
         
     }
     // MARK: - ChannelList + Creation
