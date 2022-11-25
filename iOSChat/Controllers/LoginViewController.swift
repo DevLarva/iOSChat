@@ -93,10 +93,27 @@ final class LoginViewController: UIViewController {
     func presentChatList(animated: Bool = true) {
         print("Should show chat list")
         guard let vc = ChatManager.shared.createChannelList() else { return }
-        
+        vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(didTapCompose))
         let tabVC = TabBarViewController(chatList: vc)
         tabVC.modalPresentationStyle = .fullScreen
         present(tabVC, animated: true)
+    }
+    @objc private func didTapCompose() {
+        let alert = UIAlertController(title: "새로운 대화", message: "새로운 대화방 이름을 입력하세요", preferredStyle: .alert)
+        
+        
+        alert.addTextField()
+        alert.addAction(.init(title: "취소", style: .cancel))
+        alert.addAction(.init(title: "생성", style: .default, handler: { _ in
+            guard let text = alert.textFields?.first?.text, !text.isEmpty else {
+                return
+            }
+            DispatchQueue.main.async {
+                ChatManager.shared.createNewChannel(name: text)    
+            }
+        }))
+        
+        presentedViewController?.present(alert, animated: true)
     }
 }
 

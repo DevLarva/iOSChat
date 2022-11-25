@@ -26,6 +26,7 @@ final class SettingsViewController: UIViewController {
         return label
     }()
     
+    
     private let button: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -43,6 +44,8 @@ final class SettingsViewController: UIViewController {
         view.addSubview(label)
         view.addSubview(button)
         
+        
+        label.text = ChatManager.shared.currentUser
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         
         addConstraints()
@@ -60,7 +63,19 @@ final class SettingsViewController: UIViewController {
             imageView.widthAnchor.constraint(equalToConstant: 100),
             imageView.heightAnchor.constraint(equalToConstant: 100),
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            label.leftAnchor.constraint(equalTo: view.leftAnchor),
+            label.rightAnchor.constraint(equalTo: view.rightAnchor),
+            label.heightAnchor.constraint(equalToConstant: 80),
+            label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
+            
+            button.leftAnchor.constraint(equalTo: view.leftAnchor),
+            button.rightAnchor.constraint(equalTo: view.rightAnchor),
+            button.heightAnchor.constraint(equalToConstant: 50),
+            button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 50)
+            
+            
         ])
         
     }
