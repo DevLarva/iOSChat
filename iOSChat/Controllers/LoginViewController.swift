@@ -92,6 +92,11 @@ final class LoginViewController: UIViewController {
     }
     func presentChatList(animated: Bool = true) {
         print("Should show chat list")
+        guard let vc = ChatManager.shared.createChannelList() else { return }
+        
+        let tabVC = TabBarViewController(chatList: vc)
+        tabVC.modalPresentationStyle = .fullScreen
+        present(tabVC, animated: true)
     }
 }
 

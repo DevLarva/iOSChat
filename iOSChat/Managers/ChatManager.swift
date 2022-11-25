@@ -63,8 +63,14 @@ final class ChatManager {
     }
     // MARK: - ChannelList + Creation
     
-    public func createChannelList() -> UIViewController {
-        return UIViewController()
+    public func createChannelList() -> UIViewController? {
+        guard let id = currentUser else { return nil }
+        let list = client.channelListController(query: .init(filter: .containMembers(userIds: [id])))
+        
+        let vc = ChatChannelListVC()
+        vc.content = list
+        list.synchronize()
+        return vc
         
     }
     public func createChannelList(name:String) {

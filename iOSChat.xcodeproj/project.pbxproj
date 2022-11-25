@@ -13,6 +13,8 @@
 		AC4B9D08292F42A60035E73D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC4B9D07292F42A60035E73D /* Assets.xcassets */; };
 		AC4B9D0B292F42A60035E73D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4B9D09292F42A60035E73D /* LaunchScreen.storyboard */; };
 		AC4B9D19292F4E3C0035E73D /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B9D18292F4E3C0035E73D /* ChatManager.swift */; };
+		AC5CE42329308436003B289C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5CE42229308436003B289C /* SettingsViewController.swift */; };
+		AC5CE42529308451003B289C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5CE42429308451003B289C /* TabBarViewController.swift */; };
 		C207AFC61CDFEF48696A7F0E /* Pods_iOSChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A82B26A7C04E91BB814F71 /* Pods_iOSChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		AC4B9D0A292F42A60035E73D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC4B9D0C292F42A60035E73D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC4B9D18292F4E3C0035E73D /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
+		AC5CE42229308436003B289C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		AC5CE42429308451003B289C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		E7495C16A44EA570A282B0B4 /* Pods-iOSChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSChat.release.xcconfig"; path = "Target Support Files/Pods-iOSChat/Pods-iOSChat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				AC4B9D02292F42A50035E73D /* LoginViewController.swift */,
+				AC5CE42229308436003B289C /* SettingsViewController.swift */,
+				AC5CE42429308451003B289C /* TabBarViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -248,6 +254,8 @@
 				AC4B9D03292F42A50035E73D /* LoginViewController.swift in Sources */,
 				AC4B9CFF292F42A50035E73D /* AppDelegate.swift in Sources */,
 				AC4B9D01292F42A50035E73D /* SceneDelegate.swift in Sources */,
+				AC5CE42329308436003B289C /* SettingsViewController.swift in Sources */,
+				AC5CE42529308451003B289C /* TabBarViewController.swift in Sources */,
 				AC4B9D19292F4E3C0035E73D /* ChatManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
